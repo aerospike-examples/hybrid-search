@@ -1,0 +1,21 @@
+# Aerospike dependencies
+aerospike-vector-search
+aerospike
+
+# Web Server 
+fastapi
+uvicorn[standard]
+python-multipart
+uvicorn-worker
+
+# Web Scraper
+scrapy
+scrapy-playwright
+markdownify
+
+# Processing dependencies
+sentence-transformers
+einops
+llama-index
+spacy>=3.0.0,<4.0.0
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl

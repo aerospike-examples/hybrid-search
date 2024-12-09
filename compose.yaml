@@ -1,0 +1,41 @@
+services:
+  aerospike-database:
+    image: aerospike/aerospike-server-enterprise:latest
+    container_name: aerospike-cluster
+    command: --config-file /etc/aerospike/aerospike.conf
+    ports:
+      - 3000:3000
+    volumes:
+      - ${PWD}/config/aerospike:/etc/aerospike
+    healthcheck:
+      test: [ "CMD", "asinfo", "-p", "3000", "-v", "build" ]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    networks:
+      - hybrid-search
+
+  aerospike-vector:
+    image: aerospike/aerospike-vector-search:0.11.1
+    container_name: aerospike-vector
+    volumes:
+      - ${PWD}/config/vector:/etc/aerospike-vector-search
+    depends_on:
+      aerospike-database:
+        condition: service_healthy
+    networks:
+      - hybrid-search
+
+  search-server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    container_name: search-server
+    env_file: config/config.env
+    ports:
+      - 8080:8080
+    networks:
+      - hybrid-search
+
+networks:
+  hybrid-search: {}

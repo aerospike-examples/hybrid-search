@@ -1,2 +1,22 @@
-# hybrid-search
+# Hybrid Search
 An Aerospike powered, vector and key-value approach to search.
+
+1. Clone this repo and navigate to the `hybrid-search` directory.
+    ```
+    git clone https://github.com/aerospike-examples/hybrid-search.git && cd hybrid-search
+    ```
+2. Replace the `config/aerospike/features.replace.conf` and `config/vector/features.replace.conf` with a valid Aerospike feature key file.
+    >**Note**
+    >
+    >The feature key file must have a line item for `vector-service`
+3. Create the containers by running:
+    ```bash
+    DOCKER_BUILDKIT=0 docker compose up -d
+    ```
+4. Load data into the database by running:
+    ```bash
+    docker exec -it -w /server search-server python3 load.py
+    ```
+    >**Note**
+    >
+    >This will take some time. It's scraping and loading the Aerospike support knowledgebase.
