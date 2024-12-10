@@ -23,6 +23,11 @@ services:
     depends_on:
       aerospike-database:
         condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://aerospike-vector:5040/manage/rest/v1"]
+      interval: 5s
+      timeout: 20s
+      retries: 10
     networks:
       - hybrid-search
 
@@ -34,6 +39,9 @@ services:
     env_file: config/config.env
     ports:
       - 8080:8080
+    depends_on:
+      aerospike-vector:
+        condition: service_healthy
     networks:
       - hybrid-search
 
