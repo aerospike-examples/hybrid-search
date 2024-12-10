@@ -23,3 +23,9 @@ To run this locally, follow the steps below.
     >**Note**
     >
     >This will take some time. It's scraping and loading the Aerospike support knowledgebase.
+5. Once the load script is finished, query the endpoint with query parameter `q`.  
+   For example:
+    ```
+    http://localhost:8080/rest/v1/search/?q=secondary index
+    ```
+    
