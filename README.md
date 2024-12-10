@@ -1,8 +1,19 @@
 # Hybrid Search
-An Aerospike powered, vector and key-value approach to search.
 
-This repo contains a public port of the hybrid search code used on [aerospike.com](https://aerospike.com).
+This repo contains a public port of the hybrid search code used on [aerospike.com](https://aerospike.com/search).
 To run this locally, follow the steps below.
+
+> [!NOTE]
+> Aerospike Vector Search (AVS) requires a feature key. [Request one](https://aerospike.com/docs/vector?utm_medium=web&utm_source=aerospike-github).
+
+## Pre-requisites
+
+1. An Aerospike feature key with vector search enabled.
+2. Docker & docker-compose
+
+
+## Running locally using docker-compose
+
 
 1. Clone this repo and navigate to the `hybrid-search` directory.
     ```
