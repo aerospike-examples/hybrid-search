@@ -1,6 +1,9 @@
 # Hybrid Search
 An Aerospike powered, vector and key-value approach to search.
 
+This repo contains a public port of the hybrid search code used on [aerospike.com](https://aerospike.com).
+To run this locally, follow the steps below.
+
 1. Clone this repo and navigate to the `hybrid-search` directory.
     ```
     git clone https://github.com/aerospike-examples/hybrid-search.git && cd hybrid-search
